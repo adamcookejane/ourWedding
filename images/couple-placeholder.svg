@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" fill="none">
+  <rect width="400" height="500" rx="14" fill="#e8e2d6"/>
+  <!-- Decorative rings -->
+  <circle cx="170" cy="220" r="30" stroke="#c5a55a" stroke-width="2.5" fill="none"/>
+  <circle cx="230" cy="220" r="30" stroke="#c5a55a" stroke-width="2.5" fill="none"/>
+  <!-- Heart -->
+  <path d="M200 280 C200 280 160 250 160 230 C160 218 170 210 180 210 C190 210 200 220 200 220 C200 220 210 210 220 210 C230 210 240 218 240 230 C240 250 200 280 200 280Z" fill="#c5a55a" opacity="0.25"/>
+  <!-- Text -->
+  <text x="200" y="340" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#1b2a4a" letter-spacing="3">YOUR PHOTO</text>
+  <text x="200" y="365" text-anchor="middle" font-family="Georgia, serif" font-size="12" fill="#6b7f99" letter-spacing="2">Replace this file</text>
+</svg>

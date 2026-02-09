@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maggie &amp; Bryan — Wedding Invitation</title>
+  <meta name="description" content="You are cordially invited to the wedding of Maggie R. Smith and Bryan B. Jones." />
+
+  <!-- Google Fonts — Great Vibes (elegant names), Marcellus (headings), Cormorant Garamond (script accent), DM Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@400;500;700&family=Great+Vibes&family=Marcellus&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <!-- ====== Page-load overlay ====== -->
+  <div id="pageLoader" class="page-loader" aria-hidden="true">
+    <div class="page-loader__left"></div>
+    <div class="page-loader__right"></div>
+    <div class="page-loader__monogram" id="loaderMonogram"></div>
+  </div>
+
+  <!-- ====== Skip-link for a11y ====== -->
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- ====== HERO ====== -->
+  <header id="hero" class="section hero" role="banner">
+    <div class="container hero__inner">
+      <p class="hero__pre hero-anim" id="heroPreHeading"></p>
+
+      <div class="hero__names hero-anim" aria-label="Couple names">
+        <h1>
+          <span class="hero__name" id="heroPerson1"></span>
+          <span class="hero__amp">&amp;</span>
+          <span class="hero__name" id="heroPerson2"></span>
+        </h1>
+      </div>
+
+      <div class="divider hero-anim" aria-hidden="true">&mdash;</div>
+
+      <p class="hero__date hero-anim" id="heroDate"></p>
+      <p class="hero__venue hero-anim" id="heroVenue"></p>
+
+      <button
+        class="btn btn--primary hero-anim"
+        id="heroRsvpBtn"
+        aria-haspopup="dialog"
+      >RSVP</button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ====== OUR STORY ====== -->
+    <section id="story" class="section story" aria-labelledby="storyHeading">
+      <div class="container story__inner">
+        <div class="story__image-wrap">
+          <img
+            id="storyImage"
+            src=""
+            alt=""
+            class="story__image"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="story__content">
+          <h2 id="storyHeading" class="section-heading"></h2>
+          <div id="storyText" class="story__text"></div>
+
+          <div class="story__actions">
+            <button
+              class="btn btn--primary"
+              id="storyRsvpBtn"
+              aria-haspopup="dialog"
+            >RSVP</button>
+            <a class="btn btn--outline" href="#registry">Registry</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SAVE THE DATE ====== -->
+    <section id="save-the-date" class="section save-the-date" aria-labelledby="stdHeading">
+      <div class="container text-center">
+        <h2 id="stdHeading" class="section-heading"></h2>
+
+        <div class="divider" aria-hidden="true">&mdash;</div>
+
+        <time class="std__date" id="stdDate" datetime=""></time>
+        <p class="std__time" id="stdTime"></p>
+        <p class="std__venue" id="stdVenueName"></p>
+        <address class="std__address" id="stdAddress"></address>
+
+        <p class="std__note" id="stdNote"></p>
+
+        <a class="btn btn--outline" id="stdMapLink" href="#" target="_blank" rel="noopener noreferrer">
+          View Map
+        </a>
+      </div>
+    </section>
+
+    <!-- ====== DETAILS ====== -->
+    <section id="details" class="section details" aria-labelledby="detailsHeading">
+      <div class="container text-center">
+        <h2 id="detailsHeading" class="section-heading"></h2>
+
+        <div class="divider" aria-hidden="true">&mdash;</div>
+
+        <ul id="detailsList" class="details__list" role="list"></ul>
+      </div>
+    </section>
+
+    <!-- ====== REGISTRY ====== -->
+    <section id="registry" class="section registry" aria-labelledby="registryHeading">
+      <div class="container text-center">
+        <h2 id="registryHeading" class="section-heading"></h2>
+        <p id="registrySubtext" class="section-subtext"></p>
+
+        <div class="divider" aria-hidden="true">&mdash;</div>
+
+        <div id="registryCards" class="registry__cards"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====== FOOTER ====== -->
+  <footer id="footer" class="section footer" role="contentinfo">
+    <div class="container text-center">
+      <p class="footer__names" id="footerNames"></p>
+      <p class="footer__date" id="footerDate"></p>
+      <p class="footer__venue" id="footerVenue"></p>
+      <a class="footer__email" id="footerEmail" href=""></a>
+      <p class="footer__note" id="footerNote"></p>
+    </div>
+  </footer>
+
+  <!-- ====== RSVP MODAL ====== -->
+  <div
+    id="rsvpModal"
+    class="modal-overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="rsvpModalHeading"
+    hidden
+  >
+    <div class="modal">
+      <button class="modal__close" id="modalCloseBtn" aria-label="Close RSVP form">&times;</button>
+
+      <h2 id="rsvpModalHeading" class="modal__heading"></h2>
+      <p id="rsvpModalSubtext" class="modal__subtext"></p>
+
+      <form id="rsvpForm" class="rsvp-form" novalidate>
+        <!-- Full Name -->
+        <div class="form-group">
+          <label for="rsvpName">Full Name <span aria-hidden="true">*</span></label>
+          <input
+            type="text"
+            id="rsvpName"
+            name="name"
+            required
+            autocomplete="name"
+            placeholder="Jane Doe"
+          />
+          <span class="form-error" id="rsvpNameError" role="alert"></span>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="rsvpEmail">Email <span aria-hidden="true">*</span></label>
+          <input
+            type="email"
+            id="rsvpEmail"
+            name="email"
+            required
+            autocomplete="email"
+            placeholder="jane@example.com"
+          />
+          <span class="form-error" id="rsvpEmailError" role="alert"></span>
+        </div>
+
+        <!-- Number of Guests -->
+        <div class="form-group">
+          <label for="rsvpGuests">Number of Guests</label>
+          <input
+            type="number"
+            id="rsvpGuests"
+            name="guests"
+            min="1"
+            max="10"
+            value="1"
+          />
+        </div>
+
+        <!-- Attendance -->
+        <fieldset class="form-group">
+          <legend>Will you attend? <span aria-hidden="true">*</span></legend>
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="attendance" value="yes" required />
+              Joyfully Accept
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="attendance" value="no" />
+              Regretfully Decline
+            </label>
+          </div>
+          <span class="form-error" id="rsvpAttendanceError" role="alert"></span>
+        </fieldset>
+
+        <!-- Message -->
+        <div class="form-group">
+          <label for="rsvpMessage">Message <span class="optional">(optional)</span></label>
+          <textarea
+            id="rsvpMessage"
+            name="message"
+            rows="3"
+            placeholder="Any dietary restrictions, song requests, or kind words…"
+          ></textarea>
+        </div>
+
+        <button type="submit" class="btn btn--primary btn--full">Send RSVP</button>
+      </form>
+
+      <!-- WhatsApp copy fallback -->
+      <div class="modal__whatsapp">
+        <p id="rsvpWhatsappNote" class="whatsapp-note"></p>
+        <button class="btn btn--outline btn--full" id="copyRsvpBtn">
+          Copy RSVP Message
+        </button>
+      </div>
+
+      <!-- Success state (hidden by default) -->
+      <div id="rsvpSuccess" class="rsvp-success" hidden>
+        <div class="rsvp-success__icon" aria-hidden="true">&#10003;</div>
+        <p id="rsvpSuccessMsg"></p>
+        <button class="btn btn--outline" id="rsvpCloseSuccessBtn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== TOAST ====== -->
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <!-- Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/rsvp.js"></script>
+</body>
+</html>
