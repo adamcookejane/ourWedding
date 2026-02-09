@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:menus-sale-notch.figma.site)"
+    ]
+  }
+}
