@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Maggie &amp; Bryan — Wedding Invitation</title>
-  <meta name="description" content="You are cordially invited to the wedding of Maggie R. Smith and Bryan B. Jones." />
+  <title>Adam &amp; Jane — Wedding Invitation</title>
+  <meta name="description" content="You are cordially invited to the wedding of Adam Cooke and Jane Diaz." />
 
   <!-- Google Fonts — Great Vibes (elegant names), Marcellus (headings), Cormorant Garamond (script accent), DM Sans (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -30,27 +30,23 @@
 
   <!-- ====== HERO ====== -->
   <header id="hero" class="section hero" role="banner">
-    <div class="container hero__inner">
-      <p class="hero__pre hero-anim" id="heroPreHeading"></p>
+    <div class="postcard">
+      <div class="container hero__inner">
+        <p class="hero__pre hero-anim" id="heroPreHeading"></p>
 
-      <div class="hero__names hero-anim" aria-label="Couple names">
-        <h1>
-          <span class="hero__name" id="heroPerson1"></span>
-          <span class="hero__amp">&amp;</span>
-          <span class="hero__name" id="heroPerson2"></span>
-        </h1>
+        <div class="hero__names hero-anim" aria-label="Couple names">
+          <h1>
+            <span class="hero__name" id="heroPerson1"></span>
+            <span class="hero__amp">&amp;</span>
+            <span class="hero__name" id="heroPerson2"></span>
+          </h1>
+        </div>
+
+        <p class="hero__date hero-anim" id="heroDate"></p>
+        <p class="hero__venue hero-anim" id="heroVenue"></p>
+        <div class="divider hero-anim" aria-hidden="true">&mdash;</div>
+       
       </div>
-
-      <div class="divider hero-anim" aria-hidden="true">&mdash;</div>
-
-      <p class="hero__date hero-anim" id="heroDate"></p>
-      <p class="hero__venue hero-anim" id="heroVenue"></p>
-
-      <button
-        class="btn btn--primary hero-anim"
-        id="heroRsvpBtn"
-        aria-haspopup="dialog"
-      >RSVP</button>
     </div>
   </header>
 
@@ -79,7 +75,7 @@
               id="storyRsvpBtn"
               aria-haspopup="dialog"
             >RSVP</button>
-            <a class="btn btn--outline" href="#registry">Registry</a>
+            <a class="btn btn--outline" href="#entourage">Entourage</a>
           </div>
         </div>
       </div>
@@ -90,6 +86,15 @@
       <div class="container text-center">
         <h2 id="stdHeading" class="section-heading"></h2>
 
+        <div class="std__image-wrap">
+          <img
+            src="images/savethedate.png"
+            alt="Save the Date"
+            class="std__image"
+            loading="lazy"
+          />
+        </div>
+
         <div class="divider" aria-hidden="true">&mdash;</div>
 
         <time class="std__date" id="stdDate" datetime=""></time>
@@ -99,9 +104,7 @@
 
         <p class="std__note" id="stdNote"></p>
 
-        <a class="btn btn--outline" id="stdMapLink" href="#" target="_blank" rel="noopener noreferrer">
-          View Map
-        </a>
+        <div id="stdMaps" class="std__maps"></div>
       </div>
     </section>
 
@@ -116,15 +119,15 @@
       </div>
     </section>
 
-    <!-- ====== REGISTRY ====== -->
-    <section id="registry" class="section registry" aria-labelledby="registryHeading">
+    <!-- ====== ENTOURAGE ====== -->
+    <section id="entourage" class="section entourage" aria-labelledby="entourageHeading">
       <div class="container text-center">
-        <h2 id="registryHeading" class="section-heading"></h2>
-        <p id="registrySubtext" class="section-subtext"></p>
+        <h2 id="entourageHeading" class="section-heading"></h2>
+        <p id="entourageSubtext" class="section-subtext"></p>
 
         <div class="divider" aria-hidden="true">&mdash;</div>
 
-        <div id="registryCards" class="registry__cards"></div>
+        <div id="entourageGroups" class="entourage__groups"></div>
       </div>
     </section>
   </main>

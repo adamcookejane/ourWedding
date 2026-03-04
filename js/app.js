@@ -70,8 +70,23 @@
     );
     setText("stdNote", W.saveTheDate.note);
 
-    const mapLink = document.getElementById("stdMapLink");
-    if (mapLink) mapLink.href = W.venue.mapUrl;
+    var mapsContainer = document.getElementById("stdMaps");
+    if (mapsContainer) {
+      function mapCard(label, coords) {
+        var embedUrl = "https://maps.google.com/maps?q=" + coords + "&hl=en&z=16&output=embed";
+        var linkUrl  = "https://maps.google.com/maps?q=" + coords;
+        return (
+          '<div class="std__map-wrap">' +
+            '<p class="std__map-label">' + escapeHTML(label) + '</p>' +
+            '<iframe class="std__map-iframe" src="' + embedUrl + '" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>' +
+            '<a class="btn btn--outline std__map-link" href="' + linkUrl + '" target="_blank" rel="noopener noreferrer">Open in Maps</a>' +
+          '</div>'
+        );
+      }
+      mapsContainer.innerHTML =
+        mapCard("Ceremony", W.venue.churchCoords) +
+        mapCard("Reception", W.venue.reception.coords);
+    }
   }
 
   /* ── Details ─────────────────────────────────────────── */
@@ -93,21 +108,25 @@
       .join("");
   }
 
-  /* ── Registry ────────────────────────────────────────── */
-  function renderRegistry() {
-    setText("registryHeading", W.registry.heading);
-    setText("registrySubtext", W.registry.subtext);
+  /* ── Entourage ───────────────────────────────────────── */
+  function renderEntourage() {
+    setText("entourageHeading", W.entourage.heading);
+    setText("entourageSubtext", W.entourage.subtext);
 
-    const container = document.getElementById("registryCards");
+    const container = document.getElementById("entourageGroups");
     if (!container) return;
 
-    container.innerHTML = W.registry.items
-      .map(function (item) {
+    container.innerHTML = W.entourage.groups
+      .map(function (group) {
+        var memberItems = group.members
+          .map(function (name) {
+            return '<li>' + escapeHTML(name) + '</li>';
+          })
+          .join("");
         return (
-          '<div class="registry-card">' +
-            '<div class="registry-card__name">' + escapeHTML(item.name) + '</div>' +
-            '<div class="registry-card__desc">' + escapeHTML(item.description) + '</div>' +
-            '<a class="btn btn--outline" href="' + escapeHTML(item.url) + '" target="_blank" rel="noopener noreferrer">View Registry</a>' +
+          '<div class="entourage-group">' +
+            '<div class="entourage-group__role">' + escapeHTML(group.role) + '</div>' +
+            '<ul class="entourage-group__members">' + memberItems + '</ul>' +
           '</div>'
         );
       })
@@ -141,7 +160,7 @@
   function initScrollAnimations() {
     // Mark sections for animation
     var targets = document.querySelectorAll(
-      ".story, .save-the-date, .details, .registry"
+      ".story, .save-the-date, .details, .entourage"
     );
     targets.forEach(function (el) {
       el.classList.add("fade-in");
@@ -149,7 +168,7 @@
 
     // Also animate inner elements for stagger
     var innerTargets = document.querySelectorAll(
-      ".story__image-wrap, .story__content, .details__list, .registry__cards"
+      ".story__image-wrap, .story__content, .details__list, .entourage__groups"
     );
     innerTargets.forEach(function (el) {
       el.classList.add("fade-in");
@@ -224,7 +243,7 @@
     renderStory();
     renderSaveTheDate();
     renderDetails();
-    renderRegistry();
+    renderEntourage();
     renderFooter();
     renderModalText();
     initScrollAnimations();
