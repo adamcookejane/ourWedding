@@ -274,7 +274,7 @@ a:focus-visible {
 
 .hero__date {
   font-family: var(--font-script);
-  font-size: clamp(1.05rem, 2.5vw, 1.4rem);
+  font-size: clamp(1.05rem, 2.5vw, 2.4rem);
   font-style: italic;
   color: var(--brass-light);
   letter-spacing: 0.03em;
@@ -378,46 +378,94 @@ a:focus-visible {
   display: block;
 }
 
-.std__date {
-  display: block;
-  font-family: var(--font-heading);
-  font-size: clamp(1.5rem, 4vw, 2.2rem);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--ivory);
-}
-
-.std__time {
-  font-family: var(--font-script);
-  font-size: clamp(1.05rem, 2vw, 1.3rem);
-  font-style: italic;
-  color: var(--brass-light);
-  margin-top: var(--space-xs);
-}
-
-.std__venue {
-  font-family: var(--font-heading);
-  font-size: 1.1rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ivory);
+.std__venues {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
   margin-top: var(--space-md);
 }
 
-.std__address {
+.std__venue-item {
+  flex: 1 1 200px;
+  max-width: 320px;
+}
+
+.std__venue-role {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--brass-light);
+  margin-bottom: 0.35rem;
+}
+
+.std__venue-name {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  color: var(--ivory);
+  margin-bottom: 0.25rem;
+}
+
+.std__venue-addr {
   font-style: normal;
   color: var(--blue-gray-l);
-  font-size: 0.95rem;
-  margin-top: var(--space-xs);
+  font-size: 0.88rem;
   line-height: 1.6;
 }
 
 .std__note {
-  font-family: var(--font-script);
-  font-style: italic;
-  color: var(--brass);
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-style: normal;
+  color: var(--ivory);
+  background: rgba(183, 145, 75, 0.25);
+  border: 1px solid var(--brass-light);
+  border-radius: 99px;
+  padding: 0.45em 1.4em;
   margin-top: var(--space-lg);
-  font-size: 1.05rem;
+  font-size: 0.88rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.std__countdown {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  margin: var(--space-md) auto var(--space-sm);
+}
+
+.std__countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 72px;
+}
+
+.std__countdown-num {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 6vw, 3rem);
+  color: var(--text-on-dark);
+  line-height: 1;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: var(--radius);
+  padding: 0.4em 0.6em;
+  min-width: 2.4em;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+.std__countdown-label {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--blue-gray-l);
+  margin-top: 0.4rem;
 }
 
 .save-the-date .btn {
@@ -439,10 +487,10 @@ a:focus-visible {
 
 .std__map-label {
   font-family: var(--font-heading);
-  font-size: 0.78rem;
+  font-size: 1rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--brass-light);
+  color: var(--brass-dark);
 }
 
 .std__map-iframe {
@@ -497,6 +545,15 @@ a:focus-visible {
   color: var(--blue-gray-l);
   font-size: 0.95rem;
   line-height: 1.7;
+}
+
+.details__palette {
+  display: block;
+  margin: var(--space-lg) auto 0;
+  max-width: 480px;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
 }
 
 /* ── ENTOURAGE ──────────────────────────────────────────── */
@@ -556,6 +613,11 @@ a:focus-visible {
   font-size: 1rem;
   color: var(--navy-deep);
   line-height: 1.75;
+}
+
+.entourage-member--blur {
+  filter: blur(5px);
+  user-select: none;
 }
 
 /* ── FOOTER ─────────────────────────────────────────────── */
@@ -971,7 +1033,7 @@ body {
   margin: 0 auto;
   background:
     linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
-    url('../images/postcardbg.png') center / cover no-repeat;
+    url('../images/postcardbg.png') center / contain no-repeat;
   border-radius: 8px;
   box-shadow:
     0 1px 3px rgba(0, 0, 0, 0.10),
@@ -1037,18 +1099,32 @@ body {
   border-bottom: 1px solid rgba(181, 150, 93, 0.2);
 }
 
-.std__date,
-.std__venue {
+.std__note {
+  color: #7a5a2a;
+  background: rgba(183, 145, 75, 0.12);
+  border-color: #c9a05a;
+}
+
+.std__venue-role {
+  color: #b7914b;
+}
+
+.std__venue-name {
   color: var(--navy-deep);
 }
 
-.std__time,
-.std__note {
-  color: #9c7e4d;
+.std__venue-addr {
+  color: #6c827f;
 }
 
-.std__address {
-  color: #6c827f;
+.std__countdown-num {
+  color: var(--navy-deep);
+  background: rgba(95, 118, 88, 0.08);
+  border-color: rgba(95, 118, 88, 0.25);
+}
+
+.std__countdown-label {
+  color: #8f7050;
 }
 
 .details {

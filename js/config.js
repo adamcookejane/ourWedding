@@ -33,10 +33,11 @@ const WEDDING = {
     addressLine1: "Alabang, Muntinlupa City,",
     addressLine2: "Philippines",
     mapUrl: "https://maps.app.goo.gl/EV77mgmkJa4twSjt7",
-    churchCoords: "14.422576739443441,121.03185609178465",
+    churchCoords: "14.422397514704853, 121.03176298977537",
     reception: {
-      name: "Acacia Sequoia Ballroom",
-      coords: "14.420794773525193,121.03530093118874",
+      name: "Acacia Hotel Manila",
+      address: "Filinvest Corporate City Alabang, Muntinlupa City, Philippines",
+      coords: "14.42069628709095, 121.03524591496492",
     },
   },
 
@@ -61,8 +62,8 @@ const WEDDING = {
 
   /* ── Save the Date ──────────────────────────────── */
   saveTheDate: {
-    heading: "Save the Date",
-    note: "Kindly respond by April 15, 2026",
+    heading: "The Big Day",
+    note: "Kindly respond by May 15, 2026",
   },
 
   /* ── Details ────────────────────────────────────── */
@@ -71,7 +72,7 @@ const WEDDING = {
   items: [
     {
       label: "Ceremony",
-      text: "The 'I Do's' begin at 3:00 PM at St. Jerome Emiliani and Sta. Susana Parish, Alabang. Arrive early — we promise it’ll be worth it.",
+      text: "The 'I Do's' begin at 3:00 PM at St. Jerome Emiliani and Sta. Susana Parish, Alabang.",
     },
     {
       label: "Dinner & Reception",
@@ -79,7 +80,7 @@ const WEDDING = {
     },
     {
       label: "Dress Code",
-      text: "Formal evening attire. Kindly avoid wearing white (the bride called dibs). Bonus points if you match our wedding color palette.",
+      text: "Formal evening attire. White is reserved for the bride. Feel free to embrace our wedding palette of rose gold, pale rose, sage green, and dusty blue.",
     },
   ],
 },
@@ -101,11 +102,11 @@ const WEDDING = {
     groups: [
       {
         role: "Parents of the Bride",
-        members: ["Mr. & Mrs. Bride's Parent"],
+        members: ["Thelma Diaz", "Rodrigo Diaz"],
       },
       {
         role: "Parents of the Groom",
-        members: ["Mr. & Mrs. Groom's Parent"],
+        members: ["Winnie Ryan", "Daniel Cooke"],
       },
       {
         role: "Principal Sponsors",

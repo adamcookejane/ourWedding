@@ -15,10 +15,6 @@
     if (el) el.textContent = text;
   }
 
-  function setHTML(id, html) {
-    const el = document.getElementById(id);
-    if (el) el.innerHTML = html;
-  }
 
   /* ── Hero ─────────────────────────────────────────────── */
   function renderHero() {
@@ -56,19 +52,46 @@
   function renderSaveTheDate() {
     setText("stdHeading", W.saveTheDate.heading);
 
-    const dateEl = document.getElementById("stdDate");
-    if (dateEl) {
-      dateEl.textContent = W.date.numeric;
-      dateEl.setAttribute("datetime", W.date.iso);
+    var venuesEl = document.getElementById("stdVenues");
+    if (venuesEl) {
+      venuesEl.innerHTML =
+        '<div class="std__venue-item">' +
+          '<p class="std__venue-role">Ceremony</p>' +
+          '<p class="std__venue-name">' + escapeHTML(W.venue.name) + '</p>' +
+          '<p class="std__venue-addr">' + escapeHTML(W.venue.addressLine1) + ' ' + escapeHTML(W.venue.addressLine2) + '</p>' +
+        '</div>' +
+        '<div class="std__venue-item">' +
+          '<p class="std__venue-role">Reception</p>' +
+          '<p class="std__venue-name">' + escapeHTML(W.venue.reception.name) + '</p>' +
+          '<p class="std__venue-addr">' + escapeHTML(W.venue.reception.address) + '</p>' +
+        '</div>';
     }
-
-    setText("stdTime", W.date.time);
-    setText("stdVenueName", W.venue.name);
-    setHTML(
-      "stdAddress",
-      escapeHTML(W.venue.addressLine1) + "<br>" + escapeHTML(W.venue.addressLine2)
-    );
     setText("stdNote", W.saveTheDate.note);
+
+    var countdownEl = document.getElementById("stdCountdown");
+    if (countdownEl) {
+      var target = new Date("2026-07-31T00:00:00");
+      function renderCountdown() {
+        var now  = new Date();
+        var diff = target - now;
+        if (diff <= 0) {
+          countdownEl.innerHTML = '<p class="std__note">Today is the day! 🎉</p>';
+          return;
+        }
+        var days    = Math.floor(diff / 864e5);
+        var hours   = Math.floor((diff % 864e5) / 36e5);
+        var minutes = Math.floor((diff % 36e5) / 6e4);
+        var seconds = Math.floor((diff % 6e4) / 1e3);
+        function pad(n) { return String(n).padStart(2, "0"); }
+        countdownEl.innerHTML =
+          '<div class="std__countdown-item"><span class="std__countdown-num">' + days    + '</span><span class="std__countdown-label">Days</span></div>' +
+          '<div class="std__countdown-item"><span class="std__countdown-num">' + pad(hours)   + '</span><span class="std__countdown-label">Hours</span></div>' +
+          '<div class="std__countdown-item"><span class="std__countdown-num">' + pad(minutes) + '</span><span class="std__countdown-label">Minutes</span></div>' +
+          '<div class="std__countdown-item"><span class="std__countdown-num">' + pad(seconds) + '</span><span class="std__countdown-label">Seconds</span></div>';
+      }
+      renderCountdown();
+      setInterval(renderCountdown, 1000);
+    }
 
     var mapsContainer = document.getElementById("stdMaps");
     if (mapsContainer) {
@@ -120,7 +143,7 @@
       .map(function (group) {
         var memberItems = group.members
           .map(function (name) {
-            return '<li>' + escapeHTML(name) + '</li>';
+            return '<li class="entourage-member--blur">' + escapeHTML(name) + '</li>';
           })
           .join("");
         return (

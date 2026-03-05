@@ -45,7 +45,13 @@
         <p class="hero__date hero-anim" id="heroDate"></p>
         <p class="hero__venue hero-anim" id="heroVenue"></p>
         <div class="divider hero-anim" aria-hidden="true">&mdash;</div>
-       
+
+        <button
+          class="btn btn--primary hero-anim"
+          id="heroRsvpBtn"
+          aria-haspopup="dialog"
+        >RSVP</button>
+
       </div>
     </div>
   </header>
@@ -69,14 +75,6 @@
           <h2 id="storyHeading" class="section-heading"></h2>
           <div id="storyText" class="story__text"></div>
 
-          <div class="story__actions">
-            <button
-              class="btn btn--primary"
-              id="storyRsvpBtn"
-              aria-haspopup="dialog"
-            >RSVP</button>
-            <a class="btn btn--outline" href="#entourage">Entourage</a>
-          </div>
         </div>
       </div>
     </section>
@@ -86,10 +84,12 @@
       <div class="container text-center">
         <h2 id="stdHeading" class="section-heading"></h2>
 
+        <div id="stdCountdown" class="std__countdown" aria-label="Countdown to the wedding"></div>
+
         <div class="std__image-wrap">
           <img
-            src="images/savethedate.png"
-            alt="Save the Date"
+            src="images/couple-placeholder.svg"
+            alt="The Big Day"
             class="std__image"
             loading="lazy"
           />
@@ -97,10 +97,7 @@
 
         <div class="divider" aria-hidden="true">&mdash;</div>
 
-        <time class="std__date" id="stdDate" datetime=""></time>
-        <p class="std__time" id="stdTime"></p>
-        <p class="std__venue" id="stdVenueName"></p>
-        <address class="std__address" id="stdAddress"></address>
+        <div id="stdVenues" class="std__venues"></div>
 
         <p class="std__note" id="stdNote"></p>
 
@@ -116,6 +113,13 @@
         <div class="divider" aria-hidden="true">&mdash;</div>
 
         <ul id="detailsList" class="details__list" role="list"></ul>
+
+        <img
+          src="images/colorpalette.png"
+          alt="Wedding colour palette"
+          class="details__palette"
+          loading="lazy"
+        />
       </div>
     </section>
 
