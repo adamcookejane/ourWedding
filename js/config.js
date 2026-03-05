@@ -12,7 +12,7 @@ const WEDDING = {
   /* ── Couple ─────────────────────────────────────── */
   couple: {
     person1: "Adam Cooke",
-    person2: "Jane Diaz",
+    person2: "Jane Diazzz",
     // Short version used in footer / compact spots
     short: "Adam & Jane",
   },
