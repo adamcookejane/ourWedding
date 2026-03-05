@@ -12,14 +12,14 @@ const WEDDING = {
   /* ── Couple ─────────────────────────────────────── */
   couple: {
     person1: "Adam Cooke",
-    person2: "Jane Diazzz",
+    person2: "Jane Diaz",
     // Short version used in footer / compact spots
     short: "Adam & Jane",
   },
 
   /* ── Date & Time ────────────────────────────────── */
   date: {
-    full: "Friday, the Thirty-First of July",
+    full: "July 31, 2026",
     numeric: "July 31, 2026",
     iso: "2026-07-31",          
     time: "3:00 PM – 10:00 PM",
@@ -33,6 +33,12 @@ const WEDDING = {
     addressLine1: "Alabang, Muntinlupa City,",
     addressLine2: "Philippines",
     mapUrl: "https://maps.app.goo.gl/EV77mgmkJa4twSjt7",
+    churchCoords: "14.422397514704853, 121.03176298977537",
+    reception: {
+      name: "Acacia Hotel Manila",
+      address: "Filinvest Corporate City Alabang, Muntinlupa City, Philippines",
+      coords: "14.42069628709095, 121.03524591496492",
+    },
   },
 
   /* ── Hero section ───────────────────────────────── */
@@ -44,47 +50,40 @@ const WEDDING = {
   /* ── Our Story ──────────────────────────────────── */
   story: {
     heading: "Our Story",
-    image: "images/couple-placeholder.svg",
+    image: "images/babys.png",
     imageAlt: "Photo of the happy couple",
     paragraphs: [
-      "We met on a rainy afternoon in October 2019, quite by accident, at a small bookshop on Elm Street. Bryan was reaching for the last copy of a poetry collection — the same one .. had been hunting for weeks.",
-      "What started as a friendly argument over who deserved the book turned into coffee, then dinner, then a thousand more conversations that never seemed to end. Three years, two apartments, and one very spoiled golden retriever later, Bryan proposed on the same corner where it all began.",
-      "Now we're writing the next chapter — and we want you there for the opening line.",
-    ],
+  "It all started at the gym — somewhere between burpees, sweat, and trying to survive the workout.",
+  "What began with friendly hellos and a casual 'What’s your plan after this?' soon led to a dinner date. One dinner turned into more dinners, and before we knew it, we were spending more time together outside the gym than inside it.",
+  "Then we decided to take a little adventure together — Phuket. Between beach sunsets, great food (and beers), and lots of laughter, something became very clear: this wasn’t just a holiday… we were falling in love.",
+  "And somehow, those sweaty gym sessions led us here — getting married and starting our forever. 💍"
+],
   },
 
   /* ── Save the Date ──────────────────────────────── */
   saveTheDate: {
-    heading: "Save the Date",
+    heading: "The Big Day",
     note: "Kindly respond by May 15, 2026",
   },
 
   /* ── Details ────────────────────────────────────── */
   details: {
-    heading: "Celebration Details",
-    items: [
-      {
-        label: "Ceremony",
-        text: "An intimate outdoor ceremony begins at 4:00 PM in the Garden Pavilion.",
-      },
-      {
-        label: "Cocktail Hour",
-        text: "Join us for cocktails and canapés on the terrace at 5:00 PM.",
-      },
-      {
-        label: "Dinner & Reception",
-        text: "A plated dinner followed by dancing in the Grand Ballroom at 6:00 PM.",
-      },
-      {
-        label: "Musical Guest",
-        text: "Live performance by The Moonlight Quartet.",
-      },
-      {
-        label: "Dress Code",
-        text: "Black-tie optional. We encourage guests to dress in evening attire.",
-      },
-    ],
-  },
+  heading: "Celebration Details",
+  items: [
+    {
+      label: "Ceremony",
+      text: "The 'I Do's' begin at 3:00 PM at St. Jerome Emiliani and Sta. Susana Parish, Alabang.",
+    },
+    {
+      label: "Dinner & Reception",
+      text: "Join us for dinner, drinks, and questionable dance moves at the Acacia Sequoia Ballroom (16th floor) starting at 5:00 PM. Bring your best dance steps.",
+    },
+    {
+      label: "Dress Code",
+      text: "Formal evening attire. White is reserved for the bride. Feel free to embrace our wedding palette of rose gold, pale rose, sage green, and dusty blue.",
+    },
+  ],
+},
 
   /* ── RSVP ───────────────────────────────────────── */
   rsvp: {
@@ -92,36 +91,69 @@ const WEDDING = {
     googleSheetUrl: "",
     heading: "Will You Join Us?",
     subtext: "We would be honoured by your presence. Please let us know if you can make it.",
-    whatsappNote: "Prefer WhatsApp? Copy a pre-filled message below.",
+    whatsappNote: "Prefer WhatsApp  ? Copy a pre-filled message below.",
     successMessage: "Thank you! Your RSVP has been received.",
   },
 
-  /* ── Registry ───────────────────────────────────── */
-  registry: {
-    heading: "Gift Registry",
-    subtext: "Your presence is our greatest gift. If you wish to honour us further, we are registered at the following:",
-    items: [
+  /* ── Entourage ──────────────────────────────────── */
+  entourage: {
+    heading: "Our Entourage",
+    subtext: "The wonderful people walking beside us on our special day.",
+    groups: [
       {
-        name: "Amazon",
-        url: "#",
-        description: "Home & kitchen essentials",
+        role: "Parents of the Bride",
+        members: ["Thelma Diaz", "Rodrigo Diaz"],
       },
       {
-        name: "Crate & Barrel",
-        url: "#",
-        description: "Dining & entertaining",
+        role: "Parents of the Groom",
+        members: ["Winnie Ryan", "Daniel Cooke"],
       },
       {
-        name: "Honeymoon Fund",
-        url: "#",
-        description: "Help us explore the Amalfi Coast",
+        role: "Principal Sponsors",
+        members: ["Mr. & Mrs. Sponsor 1", "Mr. & Mrs. Sponsor 2"],
+      },
+      {
+        role: "Maid of Honor",
+        members: ["Name Here"],
+      },
+      {
+        role: "Best Man",
+        members: ["Name Here"],
+      },
+      {
+        role: "Bridesmaids",
+        members: ["Name 1", "Name 2", "Name 3"],
+      },
+      {
+        role: "Groomsmen",
+        members: ["Name 1", "Name 2", "Name 3"],
+      },
+      {
+        role: "Secondary Sponsors — Candle",
+        members: ["Name & Name", "Name & Name"],
+      },
+      {
+        role: "Secondary Sponsors — Veil",
+        members: ["Name & Name", "Name & Name"],
+      },
+      {
+        role: "Secondary Sponsors — Cord",
+        members: ["Name & Name", "Name & Name"],
+      },      
+      {
+        role: "Flower Girls",
+        members: ["Name Here"],
+      },
+      {
+        role: "Ring Bearer",
+        members: ["Name Here"],
       },
     ],
   },
 
   /* ── Footer ─────────────────────────────────────── */
   footer: {
-    email: "hello@adamandjanewedding.com",
+    email: "(+65)87141800 / (+65)94274880",
     note: "Made with love",
   },
 };

@@ -22,7 +22,7 @@
 
   // All buttons that should open the modal
   var openBtns = document.querySelectorAll(
-    "#heroRsvpBtn, #storyRsvpBtn"
+    "#heroRsvpBtn"
   );
 
   var lastFocusedEl = null;
