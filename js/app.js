@@ -1,6 +1,6 @@
 /**
  * ========================================================
- *  app.js — Renders the page from WEDDING config
+ *  app.js — Renders the page from WEDDING config test
  * ========================================================
  */
 
