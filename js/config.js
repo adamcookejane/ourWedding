@@ -47,7 +47,7 @@ const WEDDING = {
     image: "images/couple-placeholder.svg",
     imageAlt: "Photo of the happy couple",
     paragraphs: [
-      "We met on a rainy afternoon in October 2019, quite by accident, at a small bookshop on Elm Street. Bryan was reaching for the last copy of a poetry collection — the same one Maggie had been hunting for weeks.",
+      "We met on a rainy afternoon in October 2019, quite by accident, at a small bookshop on Elm Street. Bryan was reaching for the last copy of a poetry collection — the same one .. had been hunting for weeks.",
       "What started as a friendly argument over who deserved the book turned into coffee, then dinner, then a thousand more conversations that never seemed to end. Three years, two apartments, and one very spoiled golden retriever later, Bryan proposed on the same corner where it all began.",
       "Now we're writing the next chapter — and we want you there for the opening line.",
     ],
