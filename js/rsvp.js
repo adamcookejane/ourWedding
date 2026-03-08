@@ -42,6 +42,14 @@
     var whatsappEl = overlay.querySelector(".modal__whatsapp");
     if (whatsappEl) whatsappEl.removeAttribute("hidden");
 
+    // Clear fields and errors
+    form.reset();
+    clearErrors();
+    var headingEl = document.getElementById("rsvpModalHeading");
+    var subtextEl = document.getElementById("rsvpModalSubtext");
+    if (headingEl) headingEl.removeAttribute("hidden");
+    if (subtextEl) subtextEl.removeAttribute("hidden");
+
     document.body.style.overflow = "hidden";
 
     // Focus the first input

@@ -322,7 +322,7 @@ a:focus-visible {
 
 .hero__date {
   font-family: var(--font-body);
-  font-size: clamp(0.65rem, 1.2vw, 0.8rem);
+  font-size: clamp(0.65rem, 1.2vw, 0.6rem);
   text-transform: uppercase;
   color: rgba(248, 241, 230, 0.72);
   letter-spacing: 0.14em;
@@ -332,7 +332,7 @@ a:focus-visible {
 
 .hero__venue {
   font-family: var(--font-body);
-  font-size: clamp(0.65rem, 1.2vw, 0.8rem);
+  font-size: clamp(0.65rem, 1.2vw, 0.6rem);
   color: rgba(248, 241, 230, 0.72);
   letter-spacing: 0.14em;
   text-transform: uppercase;
