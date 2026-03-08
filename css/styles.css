@@ -28,10 +28,11 @@
   --muted:         var(--blue-gray-l);
 
   /* Typography */
-  --font-heading: "Marcellus", "Georgia", serif;
-  --font-names:   "Great Vibes", "Georgia", cursive;
-  --font-script:  "Cormorant Garamond", "Georgia", serif;
-  --font-body:    "DM Sans", "Segoe UI", sans-serif;
+  --font-heading:  "Marcellus", "Georgia", serif;
+  --font-names:    "Great Vibes", "Georgia", cursive;
+  --font-script:   "Cormorant Garamond", "Georgia", serif;
+  --font-body:     "DM Sans", "Segoe UI", sans-serif;
+  --font-elegant:  "Bodoni Moda", "Didot", "Georgia", serif;
 
   /* Spacing scale */
   --space-xs:  0.5rem;
@@ -213,48 +214,86 @@ a:focus-visible {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: var(--space-xl) 0;
-  background:
-    radial-gradient(ellipse at 50% 20%, rgba(183, 145, 75, 0.14) 0%, transparent 62%),
-    linear-gradient(160deg, #67805f 0%, #5f7658 50%, #546a4d 100%);
+  padding: 0;
+  background: url('../images/bg.png') center / cover no-repeat;
 }
 
-.hero__bg-img {
+/* dark gradient overlay for text legibility */
+.hero::before {
+  content: "";
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  opacity: 0.18;
-  pointer-events: none;
-  user-select: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.42) 0%,
+    rgba(0, 0, 0, 0.18) 45%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+  z-index: 0;
 }
 
 .hero__inner {
-  position: relative; /* stack above hero__bg-img */
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-sm);
+  justify-content: center;
+  min-height: 80dvh;
+  gap: 0.4rem;
+  padding-bottom: 5rem;
+}
+
+.hero__bottom {
+  position: absolute;
+  bottom: 2.2rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 3.5rem;
+}
+
+/* thin gold rule above the corner labels */
+.hero__bottom::before {
+  content: "";
+  position: absolute;
+  top: -0.75rem;
+  left: 3.5rem;
+  right: 3.5rem;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(216, 185, 128, 0.5) 20%,
+    rgba(216, 185, 128, 0.5) 80%,
+    transparent
+  );
 }
 
 .hero__pre {
   font-family: var(--font-script);
-  font-size: clamp(1rem, 2.5vw, 1.35rem);
+  font-size: clamp(0.95rem, 2vw, 1.25rem);
   font-style: italic;
-  color: var(--blue-gray-l);
-  letter-spacing: 0.04em;
+  color: rgba(248, 241, 230, 0.75);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
 }
 
 .hero__names h1 {
-  font-family: var(--font-names);
-  font-weight: 500;
-  font-size: clamp(2.6rem, 10vw, 8rem);
-  letter-spacing: 0.02em;
+  font-family: var(--font-elegant);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(3rem, 10vw, 8.5rem);
+  letter-spacing: 0.04em;
   text-transform: none;
-  line-height: 1.1;
+  line-height: 1.08;
   color: var(--ivory);
+  text-shadow:
+    0 2px 24px rgba(0, 0, 0, 0.45),
+    0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero__name {
@@ -264,32 +303,61 @@ a:focus-visible {
 .hero__amp {
   display: block;
   font-family: var(--font-names);
-  font-size: clamp(1.8rem, 4.5vw, 3.2rem);
+  font-size: clamp(1.6rem, 4vw, 2.8rem);
   font-style: normal;
   font-weight: 400;
-  color: var(--brass);
-  margin: 0.05em 0;
-  text-transform: lowercase;
+  color: var(--brass-light);
+  margin: 0.15em 0;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* thin ornamental rule between names and button */
+.hero .divider {
+  color: var(--brass-light);
+  opacity: 0.6;
+  font-size: 1.1rem;
+  letter-spacing: 0.4em;
+  margin: 0.4rem 0;
 }
 
 .hero__date {
-  font-family: var(--font-script);
-  font-size: clamp(1.05rem, 2.5vw, 2.4rem);
-  font-style: italic;
-  color: var(--brass-light);
-  letter-spacing: 0.03em;
+  font-family: var(--font-body);
+  font-size: clamp(0.65rem, 1.2vw, 0.8rem);
+  text-transform: uppercase;
+  color: rgba(248, 241, 230, 0.72);
+  letter-spacing: 0.14em;
+  text-align: left;
+  line-height: 1.5;
 }
 
 .hero__venue {
   font-family: var(--font-body);
-  font-size: 0.9rem;
-  color: var(--blue-gray-l);
-  letter-spacing: 0.08em;
+  font-size: clamp(0.65rem, 1.2vw, 0.8rem);
+  color: rgba(248, 241, 230, 0.72);
+  letter-spacing: 0.14em;
   text-transform: uppercase;
+  text-align: right;
+  line-height: 1.5;
 }
 
-.hero .btn {
-  margin-top: var(--space-md);
+/* elegant outlined RSVP button on hero */
+.hero .btn--primary {
+  background: transparent;
+  color: var(--ivory);
+  border: 1px solid rgba(216, 185, 128, 0.7);
+  letter-spacing: 0.25em;
+  font-size: 0.75rem;
+  padding: 0.85rem 3rem;
+  margin-top: 1.2rem;
+  transition: background var(--transition), border-color var(--transition), color var(--transition);
+}
+.hero .btn--primary:hover,
+.hero .btn--primary:focus-visible {
+  background: rgba(216, 185, 128, 0.15);
+  border-color: var(--brass-light);
+  color: var(--brass-light);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
 }
 
 /* ── OUR STORY ──────────────────────────────────────────── */
@@ -315,7 +383,7 @@ a:focus-visible {
 
 .story__image {
   width: 100%;
-  aspect-ratio: 4 / 5;
+  /* aspect-ratio: 4 / 5; */
   object-fit: cover;
   background: var(--ivory-warm);
 }
@@ -333,6 +401,22 @@ a:focus-visible {
   color: #4e6250;
   font-size: 1rem;
   line-height: 1.8;
+}
+
+.story__inline-img-wrap {
+  margin: var(--space-sm) 0 var(--space-md);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.story__inline-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius);
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+  background: #e8e0d4;
 }
 
 .story__actions {
@@ -1019,12 +1103,6 @@ body {
   background: rgba(55, 88, 92, 0.08);
 }
 
-.hero {
-  background: #ccc3b8;
-  border-bottom: none;
-  padding: var(--space-2xl) var(--space-md);
-}
-
 /* ── Postcard card ──────────────────────────────────────── */
 .postcard {
   position: relative;
@@ -1070,11 +1148,11 @@ body {
 }
 
 .postcard .hero__date {
-  color: #7a5c3a;
+  color: #fdfdfd;
 }
 
 .postcard .hero__venue {
-  color: #6b7b78;
+  color: #fdfdfd;
 }
 
 .postcard .divider {

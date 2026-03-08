@@ -21,8 +21,8 @@
     setText("heroPreHeading", W.hero.preHeading);
     setText("heroPerson1", W.couple.person1);
     setText("heroPerson2", W.couple.person2);
-    setText("heroDate", W.date.full);
-    setText("heroVenue", W.venue.name);
+    setText("heroDate", W.date.full + ' ' + W.date.ceremony);
+    setText("heroVenue", W.venue.addressLine1+ ' ' + W.venue.addressLine2);
 
     // Update page title
     document.title = `${W.couple.short} — Wedding Invitation`;
@@ -40,9 +40,15 @@
 
     const textContainer = document.getElementById("storyText");
     if (textContainer) {
+      var inlineImgs = (W.story.inlineImages || []).reduce(function (map, entry) {
+        map[entry.afterParagraph] = entry;
+        return map;
+      }, {});
+
       textContainer.innerHTML = W.story.paragraphs
-        .map(function (p) {
-          return "<p>" + escapeHTML(p) + "</p>";
+        .map(function (p, i) {
+          var html = "<p>" + escapeHTML(p) + "</p>";
+          return html;
         })
         .join("");
     }

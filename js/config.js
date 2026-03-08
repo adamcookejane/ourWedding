@@ -54,10 +54,15 @@ const WEDDING = {
     imageAlt: "Photo of the happy couple",
     paragraphs: [
   "It all started at the gym — somewhere between burpees, sweat, and trying to survive the workout.",
-  "What began with friendly hellos and a casual 'What’s your plan after this?' soon led to a dinner date. One dinner turned into more dinners, and before we knew it, we were spending more time together outside the gym than inside it.",
+  "What began with friendly hellos and a casual ‘What’s your plan after this?’ soon led to a dinner date. One dinner turned into more dinners, and before we knew it, we were spending more time together outside the gym than inside it.",
   "Then we decided to take a little adventure together — Phuket. Between beach sunsets, great food (and beers), and lots of laughter, something became very clear: this wasn’t just a holiday… we were falling in love.",
   "And somehow, those sweaty gym sessions led us here — getting married and starting our forever. 💍"
 ],
+    // Images inserted after a paragraph (0-based index). Replace src with real photos.
+    inlineImages: [
+      { afterParagraph: 2, src: "images/story-phuket.jpg",  alt: "Our trip to Phuket" },
+      { afterParagraph: 3, src: "images/story-forever.jpg", alt: "Our forever begins" },
+    ],
   },
 
   /* ── Save the Date ──────────────────────────────── */
@@ -88,7 +93,7 @@ const WEDDING = {
   /* ── RSVP ───────────────────────────────────────── */
   rsvp: {
     // Paste your Google Apps Script web-app URL here (see setup instructions)
-    googleSheetUrl: "",
+    googleSheetUrl: "https://script.google.com/macros/s/AKfycbyKxh7WF5_2ODyRAWA2KN6KNaig3Uas9aGeRyufuyRSOIjVmyv0GtXOlPx-_R6mveAtZw/exec",
     heading: "Will You Join Us?",
     subtext: "We would be honoured by your presence. Please let us know if you can make it.",
     whatsappNote: "Prefer WhatsApp  ? Copy a pre-filled message below.",

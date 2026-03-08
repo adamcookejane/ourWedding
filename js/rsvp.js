@@ -39,7 +39,8 @@
     // Reset to form view
     form.removeAttribute("hidden");
     successPanel.setAttribute("hidden", "");
-    overlay.querySelector(".modal__whatsapp").removeAttribute("hidden");
+    var whatsappEl = overlay.querySelector(".modal__whatsapp");
+    if (whatsappEl) whatsappEl.removeAttribute("hidden");
 
     document.body.style.overflow = "hidden";
 
@@ -127,12 +128,14 @@
   }
 
   function validateForm() {
-    var nameInput  = document.getElementById("rsvpName");
-    var emailInput = document.getElementById("rsvpEmail");
-    var attendance = form.querySelector('input[name="attendance"]:checked');
+    var nameInput    = document.getElementById("rsvpName");
+    var emailInput   = document.getElementById("rsvpEmail");
+    var messageInput = document.getElementById("rsvpMessage");
+    var attendance   = form.querySelector('input[name="attendance"]:checked');
 
     var v1 = validateField(nameInput, "rsvpNameError", "Please enter your full name.");
     var v2 = validateField(emailInput, "rsvpEmailError", "Please enter a valid email address.");
+    var v4 = validateField(messageInput, "rsvpMessageError", "Please leave a message for the couple.");
 
     // Attendance validation (radio)
     var v3 = !!attendance;
@@ -143,7 +146,7 @@
       attendErr.textContent = "";
     }
 
-    return v1 && v2 && v3;
+    return v1 && v2 && v3 && v4;
   }
 
   // Live validation on blur
@@ -151,11 +154,16 @@
     var nameInput  = document.getElementById("rsvpName");
     var emailInput = document.getElementById("rsvpEmail");
 
+    var messageInput = document.getElementById("rsvpMessage");
+
     nameInput.addEventListener("blur", function () {
       validateField(nameInput, "rsvpNameError", "Please enter your full name.");
     });
     emailInput.addEventListener("blur", function () {
       validateField(emailInput, "rsvpEmailError", "Please enter a valid email address.");
+    });
+    messageInput.addEventListener("blur", function () {
+      validateField(messageInput, "rsvpMessageError", "Please leave a message for the couple.");
     });
   }
 
@@ -184,7 +192,8 @@
 
       function onSuccess() {
         form.setAttribute("hidden", "");
-        overlay.querySelector(".modal__whatsapp").setAttribute("hidden", "");
+        var whatsappEl = overlay.querySelector(".modal__whatsapp");
+        if (whatsappEl) whatsappEl.setAttribute("hidden", "");
         successPanel.removeAttribute("hidden");
         showToast(W.rsvp.successMessage);
         form.reset();

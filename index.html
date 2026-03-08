@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@400;500;700&family=Great+Vibes&family=Marcellus&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@1,6..96,300;1,6..96,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@400;500;700&family=Great+Vibes&family=Marcellus&display=swap"
     rel="stylesheet"
   />
 
@@ -30,28 +30,28 @@
 
   <!-- ====== HERO ====== -->
   <header id="hero" class="section hero" role="banner">
-    <div class="postcard">
-      <div class="container hero__inner">
-        <p class="hero__pre hero-anim" id="heroPreHeading"></p>
+    <div class="container hero__inner">
+      <p class="hero__pre hero-anim" id="heroPreHeading"></p>
 
-        <div class="hero__names hero-anim" aria-label="Couple names">
-          <h1>
-            <span class="hero__name" id="heroPerson1"></span>
-            <span class="hero__amp">&amp;</span>
-            <span class="hero__name" id="heroPerson2"></span>
-          </h1>
-        </div>
+      <div class="hero__names hero-anim" aria-label="Couple names">
+        <h1>
+          <span class="hero__name" id="heroPerson1"></span>
+          <span class="hero__amp">&amp;</span>
+          <span class="hero__name" id="heroPerson2"></span>
+        </h1>
+      </div>
 
+      <div class="divider hero-anim" aria-hidden="true">&mdash;</div>
+
+      <button
+        class="btn btn--primary hero-anim"
+        id="heroRsvpBtn"
+        aria-haspopup="dialog"
+      >RSVP</button>
+
+      <div class="hero__bottom">
         <p class="hero__date hero-anim" id="heroDate"></p>
         <p class="hero__venue hero-anim" id="heroVenue"></p>
-        <div class="divider hero-anim" aria-hidden="true">&mdash;</div>
-
-        <button
-          class="btn btn--primary hero-anim"
-          id="heroRsvpBtn"
-          aria-haspopup="dialog"
-        >RSVP</button>
-
       </div>
     </div>
   </header>
@@ -88,7 +88,7 @@
 
         <div class="std__image-wrap">
           <img
-            src="images/couple-placeholder.svg"
+            src="images/mainPic.png"
             alt="The Big Day"
             class="std__image"
             loading="lazy"
@@ -172,7 +172,7 @@
             name="name"
             required
             autocomplete="name"
-            placeholder="Jane Doe"
+            placeholder="My real name"
           />
           <span class="form-error" id="rsvpNameError" role="alert"></span>
         </div>
@@ -186,7 +186,7 @@
             name="email"
             required
             autocomplete="email"
-            placeholder="jane@example.com"
+            placeholder="bemyguest@example.com"
           />
           <span class="form-error" id="rsvpEmailError" role="alert"></span>
         </div>
@@ -199,7 +199,7 @@
             id="rsvpGuests"
             name="guests"
             min="1"
-            max="10"
+            max="2"
             value="1"
           />
         </div>
@@ -210,11 +210,11 @@
           <div class="radio-group">
             <label class="radio-label">
               <input type="radio" name="attendance" value="yes" required />
-              Joyfully Accept
+              Accept
             </label>
             <label class="radio-label">
               <input type="radio" name="attendance" value="no" />
-              Regretfully Decline
+              Decline
             </label>
           </div>
           <span class="form-error" id="rsvpAttendanceError" role="alert"></span>
@@ -222,26 +222,21 @@
 
         <!-- Message -->
         <div class="form-group">
-          <label for="rsvpMessage">Message <span class="optional">(optional)</span></label>
+          <label for="rsvpMessage">Message <span aria-hidden="true">*</span></label>
           <textarea
             id="rsvpMessage"
             name="message"
             rows="3"
-            placeholder="Any dietary restrictions, song requests, or kind words…"
+            required
+            placeholder="Any dietary restrictions, requests, or message to the the couple :) …"
           ></textarea>
+          <span class="form-error" id="rsvpMessageError" role="alert"></span>
         </div>
 
         <button type="submit" class="btn btn--primary btn--full">Send RSVP</button>
       </form>
 
-      <!-- WhatsApp copy fallback -->
-      <div class="modal__whatsapp">
-        <p id="rsvpWhatsappNote" class="whatsapp-note"></p>
-        <button class="btn btn--outline btn--full" id="copyRsvpBtn">
-          Copy RSVP Message
-        </button>
-      </div>
-
+      
       <!-- Success state (hidden by default) -->
       <div id="rsvpSuccess" class="rsvp-success" hidden>
         <div class="rsvp-success__icon" aria-hidden="true">&#10003;</div>
