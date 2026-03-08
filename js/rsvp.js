@@ -131,11 +131,24 @@
     var nameInput    = document.getElementById("rsvpName");
     var emailInput   = document.getElementById("rsvpEmail");
     var messageInput = document.getElementById("rsvpMessage");
+    var guestsInput  = document.getElementById("rsvpGuests");
     var attendance   = form.querySelector('input[name="attendance"]:checked');
 
     var v1 = validateField(nameInput, "rsvpNameError", "Please enter your full name.");
     var v2 = validateField(emailInput, "rsvpEmailError", "Please enter a valid email address.");
     var v4 = validateField(messageInput, "rsvpMessageError", "Please leave a message for the couple.");
+
+    // Guests validation (max 2)
+    var guestsVal = parseInt(guestsInput.value, 10);
+    var guestsErr = document.getElementById("rsvpGuestsError");
+    var v5 = guestsVal >= 1 && guestsVal <= 2;
+    if (!v5) {
+      guestsInput.classList.add("is-invalid");
+      if (guestsErr) guestsErr.textContent = "Maximum 2 guests allowed.";
+    } else {
+      guestsInput.classList.remove("is-invalid");
+      if (guestsErr) guestsErr.textContent = "";
+    }
 
     // Attendance validation (radio)
     var v3 = !!attendance;
@@ -146,7 +159,7 @@
       attendErr.textContent = "";
     }
 
-    return v1 && v2 && v3 && v4;
+    return v1 && v2 && v3 && v4 && v5;
   }
 
   // Live validation on blur
@@ -164,6 +177,18 @@
     });
     messageInput.addEventListener("blur", function () {
       validateField(messageInput, "rsvpMessageError", "Please leave a message for the couple.");
+    });
+    var guestsInput = document.getElementById("rsvpGuests");
+    guestsInput.addEventListener("blur", function () {
+      var val = parseInt(guestsInput.value, 10);
+      var guestsErr = document.getElementById("rsvpGuestsError");
+      if (val < 1 || val > 2 || isNaN(val)) {
+        guestsInput.classList.add("is-invalid");
+        if (guestsErr) guestsErr.textContent = "Maximum 2 guests allowed.";
+      } else {
+        guestsInput.classList.remove("is-invalid");
+        if (guestsErr) guestsErr.textContent = "";
+      }
     });
   }
 
@@ -194,6 +219,10 @@
         form.setAttribute("hidden", "");
         var whatsappEl = overlay.querySelector(".modal__whatsapp");
         if (whatsappEl) whatsappEl.setAttribute("hidden", "");
+        var headingEl = document.getElementById("rsvpModalHeading");
+        var subtextEl = document.getElementById("rsvpModalSubtext");
+        if (headingEl) headingEl.setAttribute("hidden", "");
+        if (subtextEl) subtextEl.setAttribute("hidden", "");
         successPanel.removeAttribute("hidden");
         showToast(W.rsvp.successMessage);
         form.reset();
