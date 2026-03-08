@@ -96,8 +96,8 @@ const WEDDING = {
     googleSheetUrl: "https://script.google.com/macros/s/AKfycbyKxh7WF5_2ODyRAWA2KN6KNaig3Uas9aGeRyufuyRSOIjVmyv0GtXOlPx-_R6mveAtZw/exec",
     heading: "Will You Join Us?",
     subtext: "We would be honoured by your presence. Please let us know if you can make it.",
-    whatsappNote: "Prefer WhatsApp  ? Copy a pre-filled message below.",
-    successMessage: "Thank you! Your RSVP has been received.",
+    whatsappNote: "",
+    successMessage: "Thank you! Your RSVP has been received. Maraming salamat po!",
   },
 
   /* ── Entourage ──────────────────────────────────── */
@@ -111,7 +111,7 @@ const WEDDING = {
       },
       {
         role: "Parents of the Groom",
-        members: ["Winnie Ryan", "Daniel Cooke"],
+        members: ["Winnie Ryans", "Daniel Cooke"],
       },
       {
         role: "Principal Sponsors",
@@ -158,7 +158,7 @@ const WEDDING = {
 
   /* ── Footer ─────────────────────────────────────── */
   footer: {
-    email: "(+65)87141800 / (+65)94274880",
+    email: "(+65) 94274880",
     note: "Made with love",
   },
 };
