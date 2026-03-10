@@ -111,11 +111,11 @@ const WEDDING = {
       },
       {
         role: "Parents of the Groom",
-        members: ["Winnie Ryans", "Daniel Cooke"],
+        members: ["Winifred Ryan", "Daniel Cooke"],
       },
       {
         role: "Principal Sponsors",
-        members: ["Mr. & Mrs. Sponsor 1", "Mr. & Mrs. Sponsor 2"],
+        members: ["Mrs. Jocelyn Ponce and Mr. Romy Ballesteros", "Mr. Nathaniel Ballesteros & Mrs. Sponsor 2"],
       },
       {
         role: "Maid of Honor",
@@ -151,7 +151,7 @@ const WEDDING = {
       },
       {
         role: "Ring Bearer",
-        members: ["Name Here"],
+        members: ["Mclaren Diaz"],
       },
     ],
   },
