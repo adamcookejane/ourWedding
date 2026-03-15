@@ -115,42 +115,56 @@ const WEDDING = {
       },
       {
         role: "Principal Sponsors",
-        members: ["Mrs. Jocelyn Ponce and Mr. Romy Ballesteros", "Mr. Nathaniel Ballesteros & Mrs. Sponsor 2"],
+        members: [
+          "Jocelyn Ponce",
+          "Evangeline Luzano",
+          "Kathleen Ryan",
+          "Margaret Molumby",
+        ],
+      },
+      {
+        role: "Principal Sponsors",
+        members: [
+          "William Cooke",
+          "William Kemp",
+          "Romy Ballesteros",
+          "Nathaniel Ballesteros Jr.",
+        ],
       },
       {
         role: "Maid of Honor",
-        members: ["Name Here"],
+        members: ["Jam Maica Yarbrough"],
       },
       {
         role: "Best Man",
-        members: ["Name Here"],
+        members: ["Robert Lyons"],
       },
       {
         role: "Bridesmaids",
-        members: ["Name 1", "Name 2", "Name 3"],
+        members: ["Racquel Sunga", "Nielsen Diaz", "Mau Mercado"],
       },
       {
         role: "Groomsmen",
-        members: ["Name 1", "Name 2", "Name 3"],
+        members: ["Sean Cooke", "Mark Dolan", "Neil Skeldon"],
       },
       {
         role: "Secondary Sponsors — Candle",
-        members: ["Name & Name", "Name & Name"],
+        members: ["Yee Mon Aung", "Benjamin Cordova"],
       },
       {
         role: "Secondary Sponsors — Veil",
-        members: ["Name & Name", "Name & Name"],
+        members: ["Michelle O Meadhra", "David Monaghan"],
       },
       {
         role: "Secondary Sponsors — Cord",
-        members: ["Name & Name", "Name & Name"],
+        members: ["Maryann Cooke", "Ron Ballesteros"],
       },      
       {
         role: "Flower Girls",
-        members: ["Name Here"],
+        members: ["Keith Fermocillo", "Ashley Fermocillo", "Trina Fermocillo", "Karen Ballesteros"],
       },
       {
-        role: "Ring Bearer",
+        role: "Ring, Bible, Coin Bearer",
         members: ["Mclaren Diaz"],
       },
     ],
