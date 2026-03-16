@@ -128,8 +128,8 @@ const WEDDING = {
           "William Cooke",
           "William Kemp",
           "Romy Ballesteros",
-"Willie Ballesteros",
-          "Nathaniel Ballesteros Jr.",
+          "Willie Ballesteros",
+"Nathaniel Ballesteros Jr.",
         ],
       },
       {
