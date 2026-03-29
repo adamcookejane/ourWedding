@@ -22,7 +22,7 @@
     setText("heroPerson1", W.couple.person1);
     setText("heroPerson2", W.couple.person2);
     setText("heroDate", W.date.full + ' ' + W.date.ceremony);
-    setText("heroVenue", W.venue.addressLine1+ ' ' + W.venue.addressLine2);
+    setText("heroVenue", W.venue.addressLine1 + ' ' + W.venue.addressLine2);
 
     // Update page title
     document.title = `${W.couple.short} — Wedding Invitation`;
@@ -189,7 +189,7 @@
   function initScrollAnimations() {
     // Mark sections for animation
     var targets = document.querySelectorAll(
-      ".story, .save-the-date, .details, .entourage"
+      ".story, .save-the-date, .details, .entourage, .gifts"
     );
     targets.forEach(function (el) {
       el.classList.add("fade-in");
@@ -266,6 +266,54 @@
     });
   }
 
+  /* ── Gifts Modal ─────────────────────────────────────── */
+  function initGiftsModal() {
+    var giftsOverlay  = document.getElementById("giftsModal");
+    var giftsOpenBtn  = document.getElementById("giftsHowBtn");
+    var giftsCloseBtn = document.getElementById("giftsModalCloseBtn");
+
+    if (!giftsOverlay) return;
+
+    // Modal heading
+    setText("giftsModalHeading", "");
+
+    // Populate account details from config
+    var g = (W.gifts) || {};
+    var b1 = document.getElementById("giftsBank1");
+    var b2 = document.getElementById("giftsBank2");
+    var b3 = document.getElementById("giftsBank3");
+    if (b1 && g.bank1)    b1.textContent = g.bank1;
+    if (b2 && g.bank2)    b2.textContent = g.bank2;
+    if (b3 && g.bank3)    b3.textContent = g.bank3;
+
+    function openGiftsModal() {
+      giftsOverlay.removeAttribute("hidden");
+      requestAnimationFrame(function () {
+        giftsOverlay.classList.add("is-open");
+      });
+      if (giftsCloseBtn) giftsCloseBtn.focus();
+    }
+
+    function closeGiftsModal() {
+      giftsOverlay.classList.remove("is-open");
+      giftsOverlay.setAttribute("hidden", "");
+      if (giftsOpenBtn) giftsOpenBtn.focus();
+    }
+
+    if (giftsOpenBtn) giftsOpenBtn.addEventListener("click", openGiftsModal);
+    if (giftsCloseBtn) giftsCloseBtn.addEventListener("click", closeGiftsModal);
+
+    giftsOverlay.addEventListener("click", function (e) {
+      if (e.target === giftsOverlay) closeGiftsModal();
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && giftsOverlay.classList.contains("is-open")) {
+        closeGiftsModal();
+      }
+    });
+  }
+
   /* ── Init ─────────────────────────────────────────────── */
   function init() {
     renderHero();
@@ -277,6 +325,7 @@
     renderModalText();
     initScrollAnimations();
     initPageLoader();
+    initGiftsModal();
   }
 
   if (document.readyState === "loading") {

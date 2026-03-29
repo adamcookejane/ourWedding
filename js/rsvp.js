@@ -137,13 +137,12 @@
 
   function validateForm() {
     var nameInput    = document.getElementById("rsvpName");
-    var emailInput   = document.getElementById("rsvpEmail");
     var messageInput = document.getElementById("rsvpMessage");
     var guestsInput  = document.getElementById("rsvpGuests");
     var attendance   = form.querySelector('input[name="attendance"]:checked');
 
     var v1 = validateField(nameInput, "rsvpNameError", "Please enter your full name.");
-    var v2 = validateField(emailInput, "rsvpEmailError", "Please enter a valid email address.");
+    var v2 = true;
     var v4 = validateField(messageInput, "rsvpMessageError", "Please leave a message for the couple.");
 
     // Guests validation (max 2)
