@@ -133,7 +133,7 @@ const WEDDING = {
         ],
       },
       {
-        role: "Maid of Honor",
+        role: "Matron of Honor",
         members: ["Jam Maica Yarbrough"],
       },
       {
