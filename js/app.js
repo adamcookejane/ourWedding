@@ -162,6 +162,63 @@
       .join("");
   }
 
+  /* ── Gifts ──────────────────────────────────────── */
+  function renderGifts() {
+    var container = document.getElementById("giftsDetails");
+    if (!container) return;
+
+    var banks = [];
+    if (W.gifts.bank1) banks.push('<li class="gifts__bank">' + escapeHTML(W.gifts.bank1) + '</li>');
+    if (W.gifts.bank2) banks.push('<li class="gifts__bank">' + escapeHTML(W.gifts.bank2) + '</li>');
+    if (W.gifts.bank3) banks.push('<li class="gifts__bank">' + escapeHTML(W.gifts.bank3) + '</li>');
+
+    if (banks.length) {
+      container.innerHTML = '<ul class="gifts__list">' + banks.join("") + '</ul>';
+    }
+  }
+
+  /* ── Gifts Modal ───────────────────────────────────── */
+  function initGiftsModal() {
+    var modal = document.getElementById("giftsModal");
+    var openBtn = document.getElementById("giftsHowBtn");
+    var closeBtn = document.getElementById("giftsModalCloseBtn");
+    var imageEl = document.getElementById("giftsModalImage");
+
+    if (!modal || !openBtn) return;
+
+    if (imageEl && W.gifts.image) {
+      imageEl.src = W.gifts.image;
+    }
+
+    function openModal() {
+      modal.removeAttribute("hidden");
+      void modal.offsetHeight;
+      modal.classList.add("is-open");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+      modal.classList.remove("is-open");
+      setTimeout(function () {
+        modal.setAttribute("hidden", "");
+        document.body.style.overflow = "";
+      }, 300);
+    }
+
+    openBtn.addEventListener("click", openModal);
+    if (closeBtn) closeBtn.addEventListener("click", closeModal);
+
+    modal.addEventListener("click", function (e) {
+      if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && modal.classList.contains("is-open")) {
+        closeModal();
+      }
+    });
+  }
+
   /* ── Footer ──────────────────────────────────────────── */
   function renderFooter() {
     setText("footerNames", W.couple.short);
@@ -273,6 +330,8 @@
     renderSaveTheDate();
     renderDetails();
     renderEntourage();
+    renderGifts();
+    initGiftsModal();
     renderFooter();
     renderModalText();
     initScrollAnimations();

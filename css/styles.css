@@ -723,13 +723,36 @@ a:focus-visible {
   font-family: var(--font-body);
 }
 
+.gifts__details {
+  margin-top: var(--space-sm);
+}
+
+.gifts__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.gifts__bank {
+  margin-bottom: var(--space-xs);
+  font-size: var(--text-md);
+  color: var(--text-on-light);
+  font-family: var(--font-body);
+}
+
 .gifts__how-btn {
   margin-top: var(--space-sm);
 }
 
-/* Gifts modal */
-.gifts-modal .modal__heading {
-  margin-bottom: var(--space-xs);
+#giftsModal .modal {
+  max-width: 500px;
+}
+
+.gifts__modal-image {
+  width: 100%;
+  height: auto;
+  margin-top: var(--space-md);
+  border-radius: 8px;
 }
 
 .gifts-modal__qr-row {
