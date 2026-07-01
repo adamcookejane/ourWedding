@@ -146,7 +146,7 @@ const WEDDING = {
       },
       {
         role: "Groomsmen",
-        members: ["Sean Cooke", "Mark Dolan", "Neil Skeldon"],
+        members: ["Sean Cooke", "Mark Dolan", "Christoph Zieglschmid"],
       },
       {
         role: "Secondary Sponsors — Candle",
@@ -154,11 +154,11 @@ const WEDDING = {
       },
       {
         role: "Secondary Sponsors — Veil",
-        members: ["Michelle O Meadhra", "David Monaghan"],
+        members: ["Maryann Cooke", "David Monaghan"],
       },
       {
         role: "Secondary Sponsors — Cord",
-        members: ["Maryann Cooke", "Ron Ballesteros"],
+        members: ["Elinor Pascua", "Ron Ballesteros"],
       },      
       {
         role: "Flower Girls",
