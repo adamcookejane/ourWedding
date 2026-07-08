@@ -68,7 +68,7 @@ const WEDDING = {
   /* ── Save the Date ──────────────────────────────── */
   saveTheDate: {
     heading: "The Big Day",
-    note: "Kindly respond by June 15, 2026",
+    note: "",
   },
 
   /* ── Details ────────────────────────────────────── */
